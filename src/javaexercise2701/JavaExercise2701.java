@@ -18,17 +18,22 @@ public class JavaExercise2701 {
         System.out.println("Enter School number(1-Business, 2-Engineering, 0-Exit): ");
         int school = input.nextInt();
         
+        //Exception handling for school selection
         while(true) {
             try {
+                //If the school is a correct number, exit the loop
                 if(school >= 0 && school <= 2)
                     break;
+                //Otherwise repeat until the user enters a correct choice
                 else
                     System.out.println("Please enter a number(1-Business, 2-Engineering, 0-Exit): ");
             } catch(Exception ex) {
+                //Catches exception for string cases
                 System.out.println("Please enter a number(1-Business, 2-Engineering, 0-Exit): ");
             }
             school = input.nextInt();
         }
+        //End program if School number is 0
         if(school == 0) {
             System.out.println("Have a nice day!");
         } else {
@@ -36,10 +41,12 @@ public class JavaExercise2701 {
         }
     }
     
+    //Converter method for changing number grade into a percentage
     public static String gradeConverter(int school) {
         int numGrade = 0;
         Scanner input = new Scanner(System.in);
         System.out.println("Enter a number grade: ");
+        //Same as school selection but with numbers between 0-100
         while(true) {
             try {
                 numGrade = input.nextInt();
@@ -53,6 +60,7 @@ public class JavaExercise2701 {
             numGrade = input.nextInt();
         }
         
+        //Evaluating number grade and interpretting it as a letter grade for each school case
         switch(school) {
             case 1:
                 if(numGrade <= 100 && numGrade >= 90)
@@ -88,6 +96,8 @@ public class JavaExercise2701 {
                     return "D";
                 else
                     return "F";
+                
+            //In case no grade is given
             default:
                 return"";
         }
